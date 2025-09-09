@@ -22,6 +22,12 @@ quotes =[{
     "quote":"A man sometimes devotes his life to a desire which he is not sure will ever be fulfilled. Those who laugh at this folly are, after all, no more than mere spectators of life.",
     "book": "Rashomon and Other Stories",
     "image_url":"https://www.lemon8-app.com/seo/image?item_id=7446849058595078702&index=1&sign=aace23a05d5c8c04a9f69711c5469ec4"
+,},{
+    "author":"Yosono Akiko",
+    "quote":"O my young brother, I cry for you. \n Don't you understand you must not die! You who were born the last of all \n Command a special store of parents' love \n Would parents place a blade in children's hands \n Teaching them to murder other men \n Teaching them to kill and then to die? \n Have you so learned and grown to twenty-four? \n O my brother, you must not die! \n Could it be the Emperor His Grace Exposeth not to jeopardy of war \n But urgeth men to spilling human blood \n And dying in the way of wild beasts, \n Calling such death the path to glory? \n If his Grace possesseth noble heart \n What must be the thoughts that linger true?",
+    "book":"O My Brother, You Must Not Die",
+    "image_url" :"https://64.media.tumblr.com/b46be43ade2798369cc389aa9137aa51/3157b52cd797dfd4-f0/s640x960/dbdb8ff92f03b87928b43a65a9737f7b15a66843.jpg"                                           
+
 }]
 
 def get_random_quote():
