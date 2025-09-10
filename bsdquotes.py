@@ -1,5 +1,8 @@
 import random
 from tkinter import *
+import requests
+from PIL import Image, ImageTk
+import io
 
 
 
@@ -16,7 +19,7 @@ quotes =[{
     "image_url":"https://i.pinimg.com/736x/3a/07/8c/3a078c3f68d49e6cbfa3d5490e11ee53.jpg"
 },{
     "author":"Atsushi Nakajima",
-    "quote":"Perhaps soon, my inner beast will overcome my human nature, like the ancient palace slowly sinking into the sands. I am scared I am not a valuable gem, but at the same time, I still believe I am valuable. I do not want to be mediocre, but my fear of trying has led me to alienate the world, feeding my growing sense of indignity and shame, and fueling my weakened self-esteem",
+    "quote":"Perhaps soon, my inner beast will overcome my human nature,like the ancient palace slowly sinking into the sands. I am scared I am not a valuable gem, but at the same time, I still believe I am valuable. I do not want to be mediocre, but my fear of trying has led me to alienate the world, feeding my growing sense of indignity and shame, and fueling my weakened self-esteem",
     "book":"The Moon Over the Mountain",
     "image_url":"https://64.media.tumblr.com/eea3320f43010fc7949c6aeb242c2b85/92c55185694af48b-6e/s1280x1920/745f4f1b9609a5ef56c6b0d6316192a5f27f6f2d.png"
 
@@ -32,17 +35,33 @@ quotes =[{
     "image_url" :"https://64.media.tumblr.com/b46be43ade2798369cc389aa9137aa51/3157b52cd797dfd4-f0/s640x960/dbdb8ff92f03b87928b43a65a9737f7b15a66843.jpg"                                           
 
 }]
+window = Tk()
+
+imagelabel = Label(window)
+imagelabel.pack()
 
 def get_random_quote():
     quote = random.choice(quotes)
     quotelabel.config(text=f"{quote['author']} ({quote['book']}): {quote['quote']}")
 
+    response = requests.get(quote["image_url"])
+    images_data = response.content
+    image = Image.open(io.BytesIO(images_data))
+    image = image.resize((200,200))
+    tk_image = ImageTk.PhotoImage(image)
+
+    imagelabel.config(image= tk_image)
+    imagelabel.image =tk_image
+
+    
+
+
 # random_quote = get_random_quote()
 # print(f"{random_quote['author']} ({random_quote['book']}): {random_quote['quote']}")
 # print(random_quote['image_url'])
-window = Tk()
 window.title("Bungo Stray Dogs Authors Quotes")
-quotelabel = Label(window, text="Click to get a quote")
+window.geometry("420x420")
+quotelabel = Label(window, text="Click to get a quote", wraplength=400, justify="left")
 quotelabel.pack()
 button = Button(window,
                 text= "Get Quotes",
