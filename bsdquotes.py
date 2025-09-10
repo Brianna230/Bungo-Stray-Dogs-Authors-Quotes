@@ -1,5 +1,8 @@
 import random
-import webbrowser
+from tkinter import *
+
+
+
 
 quotes =[{
     "author" : "Dazai Osamu",
@@ -32,9 +35,18 @@ quotes =[{
 
 def get_random_quote():
     quote = random.choice(quotes)
-    return quote
+    quotelabel.config(text=f"{quote['author']} ({quote['book']}): {quote['quote']}")
 
-random_quote = get_random_quote()
-print(f"{random_quote['author']} ({random_quote['book']}): {random_quote['quote']}")
-print(random_quote['image_url'])
-webbrowser.open(random_quote['image_url'])
+# random_quote = get_random_quote()
+# print(f"{random_quote['author']} ({random_quote['book']}): {random_quote['quote']}")
+# print(random_quote['image_url'])
+window = Tk()
+window.title("Bungo Stray Dogs Authors Quotes")
+quotelabel = Label(window, text="Click to get a quote")
+quotelabel.pack()
+button = Button(window,
+                text= "Get Quotes",
+                command=get_random_quote)
+button.pack()
+
+window.mainloop()
