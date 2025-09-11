@@ -1,6 +1,6 @@
 # BSD Quote Bot
 
-BSD Quote Bot is a Python project that radomly displays quotes from authors in Bungo Stray Dogs and other literary works. Each quote comes with the author,book, and a matching image, All shown in an interactive GUI.
+BSD Quote Bot is a Python project that randomly displays quotes from authors in Bungo Stray Dogs and other literary works. Each quote comes with the author,book, and a matching image, All shown in an interactive GUI.
 
 # Features
 
